@@ -289,13 +289,20 @@ grid-row-1{
     
     z-index:1000;
 }
-.arrow, .plus:hover{
+.arrow, .plus,.toplink, .recslink, .indexlink, .aboutlink:hover{
     cursor:pointer;
+    border:none;
+    outline:none;
+}
+.arrow, .plus, .toplink, .recslink, .indexlink, .aboutlink:active{
+    border:none;
+    outline:none;
 }
 ::selection{
     background:white;
-    filter:invert(1); 
+    filter:invert(1);
 }
+
 
 @media only screen and (max-width: 700px) {
   h1 {

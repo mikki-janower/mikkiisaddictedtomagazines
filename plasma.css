@@ -1,0 +1,160 @@
+
+/* Created with http://boockup.marco.land */
+@-webkit-keyframes rotatingAnimationX {
+  0%{
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@keyframes rotatingAnimationX {
+  0%{
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+@-webkit-keyframes rotatingAnimationY {
+  0%{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+@keyframes rotatingAnimationY {
+  0%{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+@-webkit-keyframes rotatingAnimationZ {
+  0%{
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+@keyframes rotatingAnimationZ {
+  0%{
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+  }
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.plasmacontainer {
+  position:fixed;
+  top:0;
+  left:0;
+    
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-perspective: 1200px;
+  perspective: 1200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.plasmacontainer > div {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.boockup {
+  -webkit-transform: rotateX(50deg) rotateY(66deg) rotateZ(-43deg);
+  transform: rotateX(50deg) rotateY(66deg) rotateZ(-43deg);
+}
+.plasma-container {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-animation: 8s rotatingAnimationY linear infinite;
+  animation: 8s rotatingAnimationY linear infinite;
+}
+.plasma-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center center;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+.plasma-top, .plasma-bottom, .plasma-side-right {
+  background-size: auto auto;
+  background-repeat: repeat;
+  background-position: top left;
+}
+.plasma-front {
+  background-image: url('images/plasma/book-cover.jpg');
+  width: 372.52px;
+  height: 482.33px;
+  -webkit-transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(0,0,0) rotateY(0deg);
+  transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(0,0,0) rotateY(0deg);
+}
+.plasma-side-left {
+  background-image: url('images/plasma/book-spine.jpg');
+  width: 44.48px;
+  height: 482.33px;
+  -webkit-transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(-22.24px, 0, -22.24px) rotateY(-90deg);
+  transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(-22.24px, 0, -22.24px) rotateY(-90deg);
+}
+.plasma-side-right {
+  background-image: url('images/plasma/book-side.jpg');
+  width: 44.48px;
+  height: 482.33px;
+  -webkit-transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(350.28px, 0px,-22.24px) rotateY(90deg);
+  transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(350.28px, 0px,-22.24px) rotateY(90deg);
+}
+.plasma-top {
+  background-image: url('images/plasma/book-top.jpg');
+  background-position: bottom right;
+  width: 372.52px;
+  height: 44.48px;
+  -webkit-transform: translate3d(-186.26px, -241.165px ,22.24px) translate3d(0px, -22.24px, -22.24px) rotateX(90deg);
+  transform: translate3d(-186.26px, -241.165px ,22.24px) translate3d(0px, -22.24px, -22.24px) rotateX(90deg);
+}
+.plasma-bottom {
+  background-image: url('images/plasma/book-top.jpg');
+  width: 372.52px;
+  height: 44.48px;
+  -webkit-transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(0px, 460.09px, -22.24px) rotateX(-90deg);
+  transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(0px, 460.09px, -22.24px) rotateX(-90deg);
+}
+.plasma-back {
+  background-image: url('images/plasma/book-back.jpg');
+  width: 372.52px;
+  height: 482.33px;
+  -webkit-transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(0,0, -44.48px) rotateY(180deg);
+  transform: translate3d(-186.26px ,-241.165px ,22.24px) translate3d(0,0, -44.48px) rotateY(180deg);
+}
+
+      

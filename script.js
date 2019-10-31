@@ -10,11 +10,11 @@ $(document).ready(function () {
   })(jQuery);
 
 AOS.init({
-    container: ".menu"
+    targetSelector:'.index',
 });
-$('.menu').scroll(function (){
+ $('.index').scroll(function (){
     AOS.refresh();
-    });
+    }); 
     
 document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
@@ -41,10 +41,29 @@ document.addEventListener("scroll", function () {
                 $('.plus').css("transform", "rotate(45deg)");
                 $('.menu').css("opacity", "1");
                 plus=true;
+                
+                //disable scroll on body
             } else{
                 $('.plus').css("transition", "linear .15s");
                 $('.plus').css("transform", "rotate(0deg)");
                 $('.menu').css("opacity", "0");
+                
+                //turn index off
+                         $('.index').css("opacity", "0"); 
+                         $('.indexlink').css("transform", "skewX(0deg)");
+                         $('.indexlink').css("filter", "blur(0em)");
+
+                         //$('.menu').css("overflow-y", "hidden");
+                         index=false;
+                //turn about off
+                         $('.about').css("opacity", "0"); 
+                         $('.aboutlink').css("transform", "skewX(0deg)");
+                         $('.aboutlink').css("filter", "blur(0em)");
+                         about=false;
+                //scroll to top of menu div
+                         $('.menu').stop(true, false).animate({ scrollTop: 0 });
+                //re-enable scroll on body
+                //reset plus
                 plus=false;
             }
         });
@@ -103,7 +122,7 @@ document.addEventListener("scroll", function () {
          $('.indexlink').css("transform", "skewX(0deg)");
          $('.indexlink').css("filter", "blur(0em)");
          
-         $('.menu').css("overflow-y", "hidden");
+         //$('.menu').css("overflow-y", "hidden");
          index=false;
      }   
 });

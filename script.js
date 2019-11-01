@@ -16,12 +16,21 @@ AOS.init({
     AOS.refresh();
     }); 
     
+//click on mobile
+ $(document).click(function(event) { 
+
+  if ( $(".children").is(":visible")) {
+    $("ul.children").slideUp('slow');
+  }
+
+});
+    
 document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
     $('.arrow').click(function(){
+        $('.menu').css("opacity", "0");
     if (pixels > 250) {
         $('html,body').stop(true, false).animate({ scrollTop: 0 }, pixels);
-        $('.menu').css("opacity", "0");
         return false;
     } else{
         $("html, body").animate({ scrollTop: $(document).height() }, 11000);
@@ -34,19 +43,19 @@ document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
     var plus=false;
     if (pixels > 250) {
-        $('.plus').click(function (){
+        $('.plus').on('click touchstart', function (){
             if (plus==false){
                 console.log(plus);
                 $('.plus').css("transition", "linear .15s");
                 $('.plus').css("transform", "rotate(45deg)");
-                $('.menu').css("opacity", "1");
+                $('.menu').css("display", "block");
                 plus=true;
                 
                 //disable scroll on body
             } else{
                 $('.plus').css("transition", "linear .15s");
                 $('.plus').css("transform", "rotate(0deg)");
-                $('.menu').css("opacity", "0");
+                $('.menu').css("display", "none");
                 
                 //turn index off
                          $('.index').css("opacity", "0"); 
@@ -71,14 +80,14 @@ document.addEventListener("scroll", function () {
 });
 
 //scroll back to top on link click
- $('.toplink').click(function(){
+ $('.toplink').on('click touchstart', function (){
        var pixels = window.pageYOffset;
         $('html,body').stop(true, false).animate({ scrollTop: 0 }, pixels);
-        $('.menu').css("opacity", "0");
+        $('.menu').css("display", "none");
 });
     
  var about=false;
- $('.aboutlink').click(function(){
+ $('.aboutlink').on('click touchstart', function (){
      if (about==false){
          $('.about').css("opacity", "1");
          
@@ -100,7 +109,7 @@ document.addEventListener("scroll", function () {
 });
 
  var index=false;
- $('.indexlink').click(function(){
+ $('.indexlink').on('click touchstart', function (){
      if (index==false){
          $('.index').css("opacity", "1");
          
@@ -128,7 +137,7 @@ document.addEventListener("scroll", function () {
 });
 
 var recs=false;
- $('.recslink').click(function(){
+ $('.recslink').on('click touchstart', function (){
      if (recs==false){
         $('.about').css("opacity", "0");
          $('.aboutlink').css("transform", "skewX(0deg)");

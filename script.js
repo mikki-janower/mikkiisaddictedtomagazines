@@ -10,13 +10,13 @@ $(document).ready(function () {
   })(jQuery);
 
 AOS.init({
-    targetSelector:'.index',
+    targetSelector:'.menu',
 });
- $('.index').scroll(function (){
+ $('.menu').scroll(function (){
     AOS.refresh();
     }); 
     
-//click on mobile
+//------------------------------------------------------click on mobile
  $(document).click(function(event) { 
 
   if ( $(".children").is(":visible")) {
@@ -25,9 +25,11 @@ AOS.init({
 
 });
     
+//----------------------------------------------------scroll on arrow click
 document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
     $('.arrow').click(function(){
+        $('.menu').css("display", "none");
         $('.menu').css("opacity", "0");
     if (pixels > 250) {
         $('html,body').stop(true, false).animate({ scrollTop: 0 }, pixels);
@@ -39,6 +41,14 @@ document.addEventListener("scroll", function () {
   });
 });
     
+//----------------------------------------------------progress bar
+document.addEventListener("scroll", function () {
+  var height = document.body.scrollHeight;
+  var pixels = window.pageYOffset;
+  $('.progress').css("margin-left", (pixels/height)*100 + '%');
+});
+    
+//----------------------------------------------------open and close the menu
 document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
     var plus=false;
@@ -48,14 +58,17 @@ document.addEventListener("scroll", function () {
                 console.log(plus);
                 $('.plus').css("transition", "linear .15s");
                 $('.plus').css("transform", "rotate(45deg)");
-                $('.menu').css("display", "block");
+
+                $('.menu').css("visibility", "visible", 5000);
+                $('.menu').css("opacity", "1");
                 plus=true;
                 
                 //disable scroll on body
             } else{
                 $('.plus').css("transition", "linear .15s");
                 $('.plus').css("transform", "rotate(0deg)");
-                $('.menu').css("display", "none");
+                $('.menu').css("visibility", "hidden");
+                $('.menu').css("opacity", "0");
                 
                 //turn index off
                          $('.index').css("opacity", "0"); 
@@ -79,18 +92,21 @@ document.addEventListener("scroll", function () {
     }  
 });
 
-//scroll back to top on link click
+//----------------------------------------------------scroll back to top on link click
  $('.toplink').on('click touchstart', function (){
        var pixels = window.pageYOffset;
         $('html,body').stop(true, false).animate({ scrollTop: 0 }, pixels);
-        $('.menu').css("display", "none");
+        $('.menu').css("visibility", "hidden");
+        $('.menu').css("opacity", "0");
 });
     
+//------------------------------------------------------open and close about page
  var about=false;
  $('.aboutlink').on('click touchstart', function (){
      if (about==false){
          $('.about').css("opacity", "1");
          
+         $('.menu').css("overflow-y", "hidden");
          $('.aboutlink').css("transform", "skewX(-15deg)");
          $('.aboutlink').css("filter", "blur(.025em)");
          
@@ -101,6 +117,7 @@ document.addEventListener("scroll", function () {
          $('.indexlink').css("filter", "blur(0em)");
          about=true;
      }else{
+         $('.menu').css("overflow-y", "scroll");
          $('.about').css("opacity", "0"); 
          $('.aboutlink').css("transform", "skewX(0deg)");
          $('.aboutlink').css("filter", "blur(0em)");
@@ -108,11 +125,13 @@ document.addEventListener("scroll", function () {
      }   
 });
 
+//----------------------------------------------------open and close index
  var index=false;
  $('.indexlink').on('click touchstart', function (){
      if (index==false){
          $('.index').css("opacity", "1");
          
+        AOS.refresh();
          $('.indexlink').css("transform", "skewX(-15deg)");
          $('.indexlink').css("filter", "blur(.025em)");
          
@@ -136,6 +155,7 @@ document.addEventListener("scroll", function () {
      }   
 });
 
+//----------------------------------------------------close other pages on recs link click
 var recs=false;
  $('.recslink').on('click touchstart', function (){
      if (recs==false){

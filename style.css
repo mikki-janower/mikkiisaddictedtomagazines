@@ -68,7 +68,8 @@ about a:active {
 }
 .menu{
     position:fixed;
-    display:none;
+    visibility:hidden;
+    opacity:0;
     background-color:#a1b7cd;
     height:100vh;
     width:100vw;
@@ -76,8 +77,19 @@ about a:active {
     right:0;
     left:0;
     bottom:0;
-    transition: linear .2s;
+    -webkit-transition: opacity 300ms, visibility 300ms;
+    transition: opacity 300ms, visibility 300ms;
+    animation:fade .3s;
     z-index:10;
+}
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 .menu h1:first-of-type{
     margin-top: .5em;
@@ -296,11 +308,47 @@ grid-row-1{
     border:none;
     outline:none;
 }
+
+#progBar {
+  display:block;
+  border:1.5px solid black;
+  width: 60vw;
+  height: 10px;
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  border-radius: 10px;
+  background-color: rgba(161, 183, 205, .5);
+  z-index:3000;
+}
+.progress {
+    width:5%;
+    height:10px;
+    opacity:1;
+    border-radius:10px;
+    background-color:black;
+    display:block;
+    z-index:3000;
+}
+
 ::selection{
     background:white;
     filter:invert(1);
 }
+.element::-webkit-scrollbar { width: 0 !important }
+.element { -ms-overflow-style: none; }
+.element { overflow: -moz-scrollbars-none; }
+.left {
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
+}
 
+.left::-webkit-scrollbar {
+    display: none; // Safari and Chrome
+}
+::-webkit-scrollbar { 
+    display: none; 
+}
 
 @media only screen and (max-width: 700px) {
   h1 {
@@ -404,6 +452,11 @@ grid-row-1{
     .aboutlink, .index, .toplink{
         cursor: pointer;
     }
+    
+    #progBar{
+        left:10px;
+    }
+
     
 }
 

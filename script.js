@@ -53,7 +53,7 @@ document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
     var plus=false;
     if (pixels > 250) {
-        $('.plus').on('click touchstart', function (){
+        $('.plus').on('click tap', function (){
             if (plus==false){
                 console.log(plus);
                 $('.plus').css("transition", "linear .15s");
@@ -63,7 +63,7 @@ document.addEventListener("scroll", function () {
                 $('.menu').css("opacity", "1");
                 plus=true;
                 
-                //disable scroll on body
+                //disable scroll on body 
             } else{
                 $('.plus').css("transition", "linear .15s");
                 $('.plus').css("transform", "rotate(0deg)");
@@ -93,7 +93,7 @@ document.addEventListener("scroll", function () {
 });
 
 //----------------------------------------------------scroll back to top on link click
- $('.toplink').on('click touchstart', function (){
+ $('.toplink').on('click tap', function (){
        var pixels = window.pageYOffset;
         $('html,body').stop(true, false).animate({ scrollTop: 0 }, pixels);
         $('.menu').css("visibility", "hidden");
@@ -102,7 +102,7 @@ document.addEventListener("scroll", function () {
     
 //------------------------------------------------------open and close about page
  var about=false;
- $('.aboutlink').on('click touchstart', function (){
+ $('.aboutlink').on('click tap', function (){
      if (about==false){
          $('.about').css("opacity", "1");
          
@@ -127,7 +127,7 @@ document.addEventListener("scroll", function () {
 
 //----------------------------------------------------open and close index
  var index=false;
- $('.indexlink').on('click touchstart', function (){
+ $('.indexlink').on('click tap', function (){
      if (index==false){
          $('.index').css("opacity", "1");
          
@@ -157,7 +157,7 @@ document.addEventListener("scroll", function () {
 
 //----------------------------------------------------close other pages on recs link click
 var recs=false;
- $('.recslink').on('click touchstart', function (){
+ $('.recslink').on('click tap', function (){
      if (recs==false){
         $('.about').css("opacity", "0");
          $('.aboutlink').css("transform", "skewX(0deg)");

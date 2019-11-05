@@ -457,7 +457,8 @@ grid-row-1{
     
     #progBar{
         left:10px;
-        top: 94vh;
+        margin-top: 96vh;
+        width:97vw;
     }
 
 }

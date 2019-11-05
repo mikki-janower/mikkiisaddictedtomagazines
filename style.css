@@ -439,6 +439,7 @@ grid-row-1{
     height:5.5rem;
     position:fixed;
     cursor: pointer;
+    display:none;
     }
     .arrow{
     height:7rem;
@@ -448,6 +449,7 @@ grid-row-1{
     right:-1vw;
     margin-left:.5em;
     cursor: pointer;
+    display:none;
     
     z-index:1000;
 }

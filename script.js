@@ -28,7 +28,7 @@ AOS.init({
 //----------------------------------------------------scroll on arrow click
 document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
-    $('.arrow').click(function(){
+    $('.arrow').on('click tap', function (){
         $('.menu').css("display", "none");
         $('.menu').css("opacity", "0");
     if (pixels > 250) {

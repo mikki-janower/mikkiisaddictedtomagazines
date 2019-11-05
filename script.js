@@ -17,18 +17,18 @@ AOS.init({
     }); 
     
 //------------------------------------------------------click on mobile
- $(document).click(function(event) { 
+ //$(document).click(function(event) { 
 
-  if ( $(".children").is(":visible")) {
-    $("ul.children").slideUp('slow');
-  }
+  //if ( $(".children").is(":visible")) {
+   // $("ul.children").slideUp('slow');
+ // }
 
-});
+//});
     
 //----------------------------------------------------scroll on arrow click
 document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
-    $('.arrow').on('click tap', function (){
+    $('.arrow').on('click tap touchstart', function (){
         $('.menu').css("display", "none");
         $('.menu').css("opacity", "0");
     if (pixels > 250) {
@@ -53,7 +53,7 @@ document.addEventListener("scroll", function () {
   var pixels = window.pageYOffset;
     var plus=false;
     if (pixels > 250) {
-        $('.plus').on('click tap', function (){
+        $('.plus').click(function (){
             if (plus==false){
                 console.log(plus);
                 $('.plus').css("transition", "linear .15s");
@@ -61,6 +61,7 @@ document.addEventListener("scroll", function () {
 
                 $('.menu').css("visibility", "visible", 5000);
                 $('.menu').css("opacity", "1");
+                AOS.refresh();
                 plus=true;
                 
                 //disable scroll on body 
@@ -93,7 +94,7 @@ document.addEventListener("scroll", function () {
 });
 
 //----------------------------------------------------scroll back to top on link click
- $('.toplink').on('click tap', function (){
+ $('.toplink').on('click tap touchstart', function (){
        var pixels = window.pageYOffset;
         $('html,body').stop(true, false).animate({ scrollTop: 0 }, pixels);
         $('.menu').css("visibility", "hidden");
@@ -102,7 +103,7 @@ document.addEventListener("scroll", function () {
     
 //------------------------------------------------------open and close about page
  var about=false;
- $('.aboutlink').on('click tap', function (){
+ $('.aboutlink').on('click tap touchstart', function (){
      if (about==false){
          $('.about').css("opacity", "1");
          
@@ -127,11 +128,11 @@ document.addEventListener("scroll", function () {
 
 //----------------------------------------------------open and close index
  var index=false;
- $('.indexlink').on('click tap', function (){
+ $('.indexlink').on('click tap touchstart', function (){
      if (index==false){
          $('.index').css("opacity", "1");
          
-        AOS.refresh();
+         AOS.refresh();
          $('.indexlink').css("transform", "skewX(-15deg)");
          $('.indexlink').css("filter", "blur(.025em)");
          
@@ -157,7 +158,7 @@ document.addEventListener("scroll", function () {
 
 //----------------------------------------------------close other pages on recs link click
 var recs=false;
- $('.recslink').on('click tap', function (){
+ $('.recslink').on('click tap touchstart', function (){
      if (recs==false){
         $('.about').css("opacity", "0");
          $('.aboutlink').css("transform", "skewX(0deg)");

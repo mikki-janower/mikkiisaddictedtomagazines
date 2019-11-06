@@ -67,8 +67,6 @@ document.addEventListener("scroll", function () {
 
                 $('.menu').css("visibility", "visible", 5000);
                 $('.menu').css("opacity", "1");
-                $('.index').css("opacity", "0"); 
-                $('.about').css("opacity", "0");
                 AOS.refresh();
                 plus=true;
                 

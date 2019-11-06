@@ -465,14 +465,13 @@ grid-row-1{
         display:none;
     }
     .arrow{
-    height:7rem;
+    height:6rem;
     position:fixed;
-    top:15vh;
+    top:17vh;
     bottom:auto;
     right:-1vw;
     margin-left:.5em;
     cursor: pointer;
-    display:none;
     
     z-index:1000;
 }

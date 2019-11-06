@@ -467,9 +467,9 @@ grid-row-1{
         display:none;
     }
     .arrow{
-    height:6rem;
+    height:5rem;
     position:fixed;
-    top:17vh;
+    top:20vh;
     bottom:auto;
     right:-1vw;
     margin-left:.5em;
